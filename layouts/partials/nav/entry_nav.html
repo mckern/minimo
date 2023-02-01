@@ -11,10 +11,10 @@
 
 {{ if gt ( len ( where .Site.RegularPages "Section" .Section ) ) 1 }}
 <nav class='entry-nav'>
-  <div class='container'>
+  <div class='container sep-before'>
 
     {{- if .PrevInSection -}}
-    <div class='prev-entry sep-before'>
+    <div class='prev-entry'>
       <a href='{{ .PrevInSection.Permalink | relURL }}'>
         <span aria-hidden='true'>
           {{- partial "svg/icon" "prev" -}}
@@ -27,14 +27,14 @@
     {{- end -}}
 
     {{- if .NextInSection -}}
-    <div class='next-entry sep-before'>
+    <div class='next-entry'>
       <a href='{{ .NextInSection.Permalink | relURL }}'>
         <span class='screen-reader-text'>{{ i18n "nextPost" }}: </span>
-        {{- .NextInSection.Title -}}
         <span aria-hidden='true'>
           {{- print ( i18n "next" ) " " -}}
           {{- partial "svg/icon" "next" -}}
         </span>
+        {{- .NextInSection.Title -}}
       </a>
     </div>
     {{- end -}}
