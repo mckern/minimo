@@ -7,7 +7,7 @@
 {{- $lang := .Site.Language.Lang -}}
 {{- $config := ( ( index $configData $lang ) | default $configData ) -}}
 
-<section class='widget widget-social_menu sep-after'>
+<section class='widget widget-link_menu sep-after'>
   {{- with $config.title -}}
   <header>
     <h4 class='title widget-title'>
