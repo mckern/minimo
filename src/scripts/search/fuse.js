@@ -13,7 +13,9 @@ const doSearch = (term, fuse, resultsBlock) => {
   let results = term
     ? fuse
         .search(term)
-        .map(result => ({ href: result.href, title: result.title }))
+        .map(function (result) {
+            return ({ href: result.item.href, title: result.item.title })
+          })
     : []
 
   appendResults(results, resultsBlock)
@@ -21,12 +23,12 @@ const doSearch = (term, fuse, resultsBlock) => {
 
 const options = {
   shouldSort: true,
-  threshold: 0.5,
+  threshold: 0.4,
   location: 0,
   distance: 500,
   maxPatternLength: 32,
   minMatchCharLength: 1,
-  keys: [{ name: 'title', weight: 0.7 }, { name: 'content', weight: 0.3 }]
+  keys: [{ name: 'title', weight: 0.5 }, { name: 'content', weight: 0.5 }]
 }
 
 const searchInputBox = document.getElementById('search-term')
